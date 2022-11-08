@@ -2,6 +2,7 @@ import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from './app/app.module';
+import { LoginComponent } from './app/login/login.component';
 import { environment } from './environments/environment';
 
 if (environment.production) {

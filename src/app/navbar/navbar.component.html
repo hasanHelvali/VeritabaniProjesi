@@ -37,11 +37,12 @@ referrerpolicy="no-referrer"
           <form class="m-2">
             <div class="input-group">
               <input
+                #sehirGirisi
                 type="text"
                 class="form-control m-2 rounded"
                 placeholder="Bulunduğunuz Şehri Girin"
-              />
-              <button class="btn btn-primary m-2 rounded">
+                />
+              <button class="btn btn-primary m-2 rounded" (click)="getLocation(sehirGirisi.value)">
                 <i class="fa fa-search"> | Konum Al</i>
               </button>
             </div>

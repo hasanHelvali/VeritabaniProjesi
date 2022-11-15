@@ -15,6 +15,9 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './login-guard.service';
 import { AuthService } from './auth.service';
+import { GeoLocationService } from './geo-location.service';
+import { Observable } from 'rxjs';
+import { Sehir } from './sehir';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,7 @@ import { AuthService } from './auth.service';
     GezmekIstenilenYerlerComponent,
     HaritaHareketleriComponent,
     AdminComponent,
-    HakkimizdaComponent
+    HakkimizdaComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ import { AuthService } from './auth.service';
     AppRoutingModule
 
   ],
-  providers: [AuthGuard,LoginComponent,AuthService,NavbarComponent],
+  providers: [AuthGuard,LoginComponent,AuthService,NavbarComponent,GeoLocationService,Sehir],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

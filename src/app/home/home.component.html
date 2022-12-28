@@ -1,0 +1,43 @@
+
+<div *ngIf="girisYapilmisMi==true" class="container d-flex justify-content-center align-items-center">
+  <button class="btn btn-primary" (click)="getLocation()">Mekanları Listele</button>
+</div>
+
+
+<div *ngIf="mekann.length>0">
+  <div class="row justify-content-center align-items-center mb-5 ">
+    <div class="col-md-3 m-2 justify-content-center align-items-center overflow-auto" *ngFor="let item of mekann">
+      <div *ngIf="this.item.categoryId==1" class="card p-1 border-radius border-dark bg-light text-white space-between " style="width:50vh; height:100vh;">
+        <img class="card-img-top resim" src="{{item.imgUrl}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title text-dark">{{item.name}}</h5>
+          <div class="card-text text-dark">
+            <p>
+              {{item.description}}
+            </p>
+          </div>
+        </div>
+        <div class="card-footer row  align-items-center bg-dark d-flex space-between">
+          <div class="col-md-4  align-items-center border-radius d-flex">
+            <button class="btn btn-success justify-content-start" (click)="gezildi(item)" [routerLink]="['/gezdiklerim']" [queryParams]="{categoryId:'2'}">
+              <i class="fas fa-check"></i> Gezildi</button>
+          </div>
+
+          <div class="col-md-4  align-items-center border-radius d-flex">
+            <button class="btn btn-danger justify-content-start" (click)="favoriyeEkle(item)" [routerLink]="['/gezmekIstediklerim']" [queryParams]="{categoryId:'3'}">
+              <i class="fa fa-heart"></i> Favori</button>
+          </div>
+
+          <div class="col-md-4  align-items-center border-radius d-flex ">
+            <button class="btn btn-warning justify-content-end"(click)="yolTarifi(item)" [routerLink]="['/harita']" [queryParams]="{lat:this.item.latitude,lng:this.item.longitude}">
+              <i class="fas fa-map-marker"></i>Konumu Göster</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div>
+  <button class="btn btn-primary" (click)="mekanOlustur()">Mekan Olustur</button>
+</div> -->

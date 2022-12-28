@@ -9,7 +9,6 @@ import { HakkimizdaComponent } from "../hakkimizda/hakkimizda.component";
 import { HaritaHareketleriComponent } from "../harita-hareketleri/harita-hareketleri.component";
 import { NotfoundComponent } from "../notfound/notfound.component";
 import { AuthGuard } from "../login-guard.service";
-import { AppComponent } from "../app.component";
 
 const appRoutes:Routes=[
     {path:'',component:HomeComponent,canActivate:[AuthGuard]},
@@ -19,7 +18,7 @@ const appRoutes:Routes=[
     {path:'gezmekIstediklerim',component:GezmekIstenilenYerlerComponent,canActivate:[AuthGuard]},
     {path:'hakkimizda',component:HakkimizdaComponent,canActivate:[AuthGuard]},
     {path:'harita',component:HaritaHareketleriComponent,canActivate:[AuthGuard]},
-    {path:'**',component:NotfoundComponent,canActivate:[AuthGuard]},
+    {path:'**',component:NotfoundComponent},
   ]
 @NgModule({
   imports:[

@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -18,27 +19,32 @@ import { AuthService } from './auth.service';
 import { GeoLocationService } from './geo-location.service';
 import { Observable } from 'rxjs';
 import { Sehir } from './sehir';
-
+import { MekanListeleService } from './mekan-listele.service';
+import { Konum } from './konum';
+import { FooterComponent } from './footer/footer.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     LoginComponent,
-    NotfoundComponent,
     HomeComponent,
+    NotfoundComponent,
     GezilenYerlerComponent,
     GezmekIstenilenYerlerComponent,
     HaritaHareketleriComponent,
     AdminComponent,
     HakkimizdaComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
-
+    AppRoutingModule,
+    HttpClientModule,
   ],
-  providers: [AuthGuard,LoginComponent,AuthService,NavbarComponent,GeoLocationService,Sehir],
+  providers: [AuthGuard,LoginComponent,AuthService,NavbarComponent,GeoLocationService,Sehir,HomeComponent,MekanListeleService,HaritaHareketleriComponent,Konum],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+}

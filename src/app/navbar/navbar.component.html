@@ -1,10 +1,4 @@
-<link
-rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
-crossorigin="anonymous"
-referrerpolicy="no-referrer"
-/>
+
 <header>
   <section class="top-bar">
     <div class="container">
@@ -18,31 +12,34 @@ referrerpolicy="no-referrer"
             <a href="" class="btn btn-light" routerLink="login">
               <i class="fa fa-user"></i
               ><span class="ms-1 d-none d-sm-inline-block">
-                Log-in/Sign Up
+                Sign In/Sign Up
                 {{message}}
               </span>
             </a>
-            <a href="" class="btn btn-light">
+            <a  class="btn btn-light">
               <i class="fa fa-heart"></i
-              ><span class="ms-1 d-none d-sm-inline-block"> Listem</span>
+              ><span class="ms-1 d-none d-sm-inline-block" routerLink="gezmekIstediklerim"> Listem</span>
             </a>
             <a href="" class="btn btn-light" routerLink="hakkimizda">
-              <i class="fa fa-info">-</i
+              <i class="fa fa-info"> - </i
               ><span class="ms-1 d-none d-sm-inline-block">Hakkımızda </span>
             </a>
           </div>
         </div>
 
-        <div class="col-lg-5 col-sm-12 col-12">
+        <div class="col-lg-5 col-sm-12 col-12" >
           <form class="m-2">
             <div class="input-group">
-              <input
+              <input [(ngModel)]="konum" name="konumm"
+              id="bulunulanSehir"
                 #sehirGirisi
                 type="text"
                 class="form-control m-2 rounded"
                 placeholder="Bulunduğunuz Şehri Girin"
+                (keypress)="konum=sehirGirisi.value"
+                (keyup.enter)="yerGetir(konum)"
                 />
-              <button class="btn btn-primary m-2 rounded" (click)="getLocation(sehirGirisi.value)">
+              <button class="btn btn-primary m-2 rounded" (click)="getLocation(sehirGirisi.value)" routerLink="/home" [queryParams]="{konum:sehirGirisi.value}">
                 <i class="fa fa-search"> | Konum Al</i>
               </button>
             </div>
@@ -63,7 +60,7 @@ referrerpolicy="no-referrer"
             <a href="" class="nav-link" routerLink="gezmekIstediklerim">Gezmek İstediğim Yerler | </a>
           </li>
           <li class="nav-item">
-            <a href="" class="nav-link" routerLink="harita">Harita Üzerinde Hareketlerim </a>
+            <a href="" class="nav-link" routerLink="harita">Harita Üzerinde Konum </a>
           </li>
         </ul>
       </div>
